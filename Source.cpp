@@ -37,6 +37,17 @@ int sum(int lastNumber) // the sum of all the numbers less then "lastNumber"
 	}
 }
 
+void printStars(int noOfStars) // print a certain number of stars
+{
+	if (noOfStars == 0)
+		std::cout << std::endl;
+	else
+	{
+		std::cout << '*';
+		printStars(noOfStars - 1);
+	}
+}
+
 int main()
 {
 	std::cout << "Factorial Recursive Method: ";
@@ -47,4 +58,7 @@ int main()
 
 	std::cout << "Sum Recursive Method: ";
 	std::cout << sum(3) << std::endl;
+
+	std::cout << "Print Triangle Recursive Method: ";
+	printStars(9);
 }
