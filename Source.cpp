@@ -25,6 +25,18 @@ int powerNumber(int base, int power) // where x is at the power of n
 	}
 }
 
+int sum(int lastNumber) // the sum of all the numbers less then "lastNumber"
+{
+	if (lastNumber == 1)
+	{
+		return 1;
+	}
+	else
+	{
+		return lastNumber + sum(lastNumber - 1);
+	}
+}
+
 int main()
 {
 	std::cout << "Factorial Recursive Method: ";
@@ -32,4 +44,7 @@ int main()
 
 	std::cout << "Power Recursive Method: ";
 	std::cout << powerNumber(6,3) << std::endl;
+
+	std::cout << "Sum Recursive Method: ";
+	std::cout << sum(3) << std::endl;
 }
