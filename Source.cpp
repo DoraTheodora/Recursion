@@ -6,11 +6,7 @@ int factorial(int n) // factorial of n!
 	{
 		return 1;
 	}
-	else
-	{
-		int factorialN = n * factorial(n - 1);
-		return factorialN;
-	}
+	return n * factorial(n - 1);
 }
 
 int powerNumber(int base, int power) // where x is at the power of n
@@ -19,34 +15,35 @@ int powerNumber(int base, int power) // where x is at the power of n
 	{
 		return base;
 	}
-	else
-	{
-		return base * powerNumber(base, power - 1);
-	}
+	return base * powerNumber(base, power - 1);
 }
 
-int sum(int lastNumber) // the sum of all the numbers less then "lastNumber"
+int sum(int number) // the sum of all the numbers less then "number"
 {
-	if (lastNumber == 1)
+	if (number == 1)
 	{
 		return 1;
 	}
-	else
-	{
-		return lastNumber + sum(lastNumber - 1);
-	}
+	return number + sum(number - 1);
 }
 
-void printStars(int noOfStars) // print a certain number of stars
+bool isPowerOfTwo(int number) // checks if a number is a power of 2 product
 {
-	if (noOfStars == 0)
-		std::cout << std::endl;
+	if (number%2 == 0)
+	{
+		if (number == 2)
+		{
+			return true;
+		}
+		isPowerOfTwo(number / 2);
+	}
 	else
 	{
-		std::cout << '*';
-		printStars(noOfStars - 1);
+		return false;
 	}
+
 }
+
 
 int main()
 {
@@ -59,6 +56,21 @@ int main()
 	std::cout << "Sum Recursive Method: ";
 	std::cout << sum(3) << std::endl;
 
-	std::cout << "Print Triangle Recursive Method: ";
-	printStars(9);
+	std::cout << "Is Power Of Recursive method: " << std::endl;
+	if (isPowerOfTwo(4))
+	{
+		std::cout << 8 << " is a power of 2!" << std::endl;
+	}
+	else
+	{
+		std::cout << 8 << " is NOT a power of 2!" << std::endl;
+	}
+	if (isPowerOfTwo(9))
+	{
+		std::cout << 9 << " is a power of 2!" << std::endl;
+	}
+	else
+	{
+		std::cout << 9 << " is NOT a power of 2!" << std::endl;
+	}
 }
